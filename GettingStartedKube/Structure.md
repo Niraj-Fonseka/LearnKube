@@ -1,7 +1,3 @@
-# LearnKube
-
-Repository for all things kubernates 
-
                                                                  +--> Cluster Store
                 +------------------------+                       |    * Cluster state      +------------------------+
                 |       Linux Node       |                       |    * Config             |                        |
@@ -9,7 +5,7 @@ Repository for all things kubernates
                 | |kubelet|    |k.proxy| |                       |                         |                        |
                 | +-------+    +-------+ |   +------------------------------------------+  |     Linux Node         |
                 |       +-------+        |   |                   |                      |  |                        |
-                |       |con.eng|        |   |         Master ( Control Pane )          |  |                        |
+                |       |con.eng|        |   |         Master ( C|ntrol Pane )          |  |                        |
                 |       +-------+        |   |                   |                      |  +------------------------+
                 +------------------------+   |                +------+                  |
                                              |                |  |   |                  |

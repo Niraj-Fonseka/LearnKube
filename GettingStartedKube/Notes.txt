@@ -1,0 +1,5 @@
+Objects in the K8s API 
+    - Pods : Atomic Unit of scheduling 
+    - Replication Controllers : Scale Pods , Desired State etc
+    - Deployments : RC + Rolling updates, Rollbacks ...
+    - Services : Stable Networking 

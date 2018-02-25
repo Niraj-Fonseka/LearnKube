@@ -1,0 +1,57 @@
+* In the Hypervising world the atomic unit of scheduling is the Virtual Machine 
+* Docker world the smallest unit of scheduling is the container
+* In the kubernates world the atomic unit of scheduling is the pod
+
+
+* A Pod contains one or more containes 
+    - Deploy a pod to a cluster by defining a manifest file
+    - One main pod and many supporting conatiners 
+    - Give it to the API Server 
+    - And scheduler deploys it to the node. Depends on the manifest file it will have one or more conrainers 
+    - One IP to One Pod 
+    - { netns } Every container inside the pod shares a single network
+      namespace 
+    - all containers share cgroups,namespaces etc ...
+
+* Inter pod communication 
+    - Every pod can talk directly to any other pod 
+
+* Intra Pod communication ( Container communication )
+    - talk over the shared localhost interface 
+
+* Its all about that POD 
+
+* One pod get scheduled to one node ( No half there half here )
+
+
+* POD Lifecycle 
+
+        - Define a manifest file (yamal or json)
+        - Feed into the API_Server 
+        - Goes into the pending state ( setting up , installing images etc)
+        - Running state 
+        - Succeeded state 
+    * It may remain in pending and go into failed 
+        pending ---> failed 
+        pending ---> running ---> failed 
+
+    * When they die they dieeeeee
+
+    
+  +----------------+
+  |                |      +-----------+      +-----------+      +-----------+
+  |                +------>   POD     +------>   POD     +------>   POD     |
+  |  API SERVER {} |      | {pending} |      | {running} |      | {succeees}|
+  |                |      +-----------+      +-----------+      +-----------+
+  +-------^--------+            |                 |
+          |                     |                 |
+          |                     |                 |
+     +---------+                |  +-----------+  |
+     |         |                |  |   POD     |  |
+     |         |                +-->  Failed   <--+
+     |Manifest |                   +-----------+
+     |         |
+     |         |
+     |         |
+     +---------+
+

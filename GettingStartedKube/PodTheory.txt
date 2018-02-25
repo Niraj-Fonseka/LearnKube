@@ -35,7 +35,7 @@
         pending ---> failed 
         pending ---> running ---> failed 
 
-    * When they die they dieeeeee
+    * When they die they dieeeeee ( atomic )
 
     
   +----------------+
@@ -55,3 +55,17 @@
      |         |
      +---------+
 
+
+
+* Replication controller 
+    - deploy a replication colroller 
+    - specify what pod needs tobe replicated 
+        ie: manifest 
+            apiVersion: v1
+            kindL ReplicationController
+            metadata:
+                name: hello-rc 
+            spec:
+                replicas: 5
+                ...
+                ...

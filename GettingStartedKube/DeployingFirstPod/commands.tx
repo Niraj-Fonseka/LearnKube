@@ -1,0 +1,15 @@
+//Creating a pod using a manifest file ( leave the validations on or off )
+- kubectl create -f filename.yml
+
+//describing pods in the default namespace 
+- kubectl describe pods 
+
+//creating a replication controller
+kubectl create -f replicationCtl.yml
+
+//to do a change for the existing rc
+kubectl apply -f replicationCtl.yml
+
+//get the replication contollers 
+kubectl get rc 
+

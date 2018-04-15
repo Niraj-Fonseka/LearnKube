@@ -1,0 +1,47 @@
+* Accessing from outside the cluster
+* Accessing from inside the cluster
+
+                +----------+
+                |  Client  |
+                |          |
+                +--+----^--+
+                   |    |
+                   |    |
+             +-----v----+-----+
+             |     Service    |
+             | IP,Port,DNS    |
+   +---------> {Reliable}     <----------+
+   |         +-------^--------+          |
+   |                 |                   |
+   |                 |                   |
+   |                 |                   |
+   |                 |                   |
++--v-------+     +---v------+     +------v---+
+|   POD    |     |   POD    |     |   POD    |
+|          |     |          |     |          |
++----------+     +----------+     +----------+
+
+
+* Whenever a service gets created we area also creating an 
+endpoint object
+    - list of all the pods in the service 
+
+
+* Labels 
+    - lables are what stiches services to pods , any changes to the 
+       service changes the corresponding end point objec 
+
+* service discovery 
+    - Services get DNS names that are resolvable inside the 
+      cluster
+
+* By default service ports are going to be between
+    32000 - 32767
+
+
+
+* Spec types in the manifest yml 
+    - ClusterIP : Stable internal cluster 
+    - NodePort : Exposes the app outsude of the cluster
+                 by adding a cluster-wide port on top of ClusterIP
+    - LoadBalancer : integrates NodePort with cloud-based load balancers
